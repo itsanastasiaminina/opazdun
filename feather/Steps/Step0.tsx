@@ -41,7 +41,7 @@ const Step0: FC<{
       </Box>
       <Box>
         <Text variant="h6" style={{ fontWeight: '500', textAlign: 'center' }}>
-          Состовляй расписание
+          Составляй расписание
         </Text>
       </Box>
       <Box pt="9px">
