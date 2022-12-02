@@ -44,7 +44,7 @@ const Step1: FC<{
       </Box>
       <Box>
         <Text variant="h6" style={{ fontWeight: '500', textAlign: 'center' }}>
-          Состовляй расписание
+          Выходи позже
         </Text>
       </Box>
       <Box pt="9px">
@@ -52,7 +52,7 @@ const Step1: FC<{
           variant="subtitle1"
           style={{ fontWeight: '300', textAlign: 'center' }}
         >
-          Или импортируй из Google-календаря или личного кабинета УрФУ
+          Но не опаздывай на запланированные мероприятия
         </Text>
       </Box>
       <Box p="calc(100%/7)" pt="46px">
