@@ -1,4 +1,4 @@
 ## opazdun
-#Use node v16
-#yarn
-#expo start
+Use node v16 /n
+yarn /n
+expo start /n
