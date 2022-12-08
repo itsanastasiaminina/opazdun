@@ -5,6 +5,8 @@ import Stepers from './feather/Stepers'
 import Step0 from './feather/Steps/Step0'
 import Step1 from './feather/Steps/Step1'
 import Step2 from './feather/Steps/Step2'
+import Step3 from './feather/Steps/Step3'
+import Step4 from './feather/Steps/Step4'
 
 export default function App() {
   const [step, setStep] = useState(0)
@@ -16,17 +18,22 @@ export default function App() {
         items={[
           <Step0
             handlerNext={handlerChangeStep(1)}
-            handlerSkip={handlerChangeStep(4)}
+            handlerSkip={handlerChangeStep(3)}
           />,
           <Step1
             handlerPrev={handlerChangeStep(0)}
             handlerNext={handlerChangeStep(2)}
-            handlerSkip={handlerChangeStep(4)}
+            handlerSkip={handlerChangeStep(3)}
           />,
           <Step2
             handlerPrev={handlerChangeStep(1)}
             handlerNext={handlerChangeStep(3)}
-            handlerSkip={handlerChangeStep(4)}
+            handlerSkip={handlerChangeStep(3)}
+          />,
+          <Step3 handlerNext={handlerChangeStep(4)} />,
+          <Step4
+            handlerPrev={handlerChangeStep(3)}
+            handlerNext={handlerChangeStep(5)}
           />,
         ]}
       />
