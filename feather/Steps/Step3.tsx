@@ -165,8 +165,8 @@ const Step3: FC<{ handlerNext(): void }> = ({ handlerNext }) => {
         <Text
           variant="body1"
           style={{
-            fontWeight: '400',
-            fontSize: 16,
+            fontWeight: '300',
+            fontSize: 14,
             textAlign: 'left',
             paddingBottom: '8px',
           }}

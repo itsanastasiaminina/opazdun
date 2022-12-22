@@ -8,7 +8,6 @@ import {
   DialogHeader,
   DialogContent,
   DialogActions,
-  TextInput,
 } from '@react-native-material/core'
 import React, { FC, PropsWithChildren, useCallback, useState } from 'react'
 import {
@@ -55,6 +54,37 @@ const BtnWrapper = styled.View`
   margin-bottom: 60px;
 `
 
+
+const InpWrapper = styled.View`
+  margin-top: 200px;
+  margin-left: 200px;
+  flex: 1;
+  space-between: 50px;
+`
+
+const TextInput = styled.TextInput.attrs({
+  placeholderTextColor: 'rgba(28, 27, 31, 0.3)',
+})`
+  background: #e3e3e3;
+  width: 250px;
+  border-radius: 10px;
+  padding: 16px;
+  &:active {
+    outline: 0;
+    outline-offset: 0;
+  }
+  &:hover {
+    outline: 0;
+    outline-offset: 0;
+  }
+  &:focus {
+    outline: 0;
+    outline-offset: 0;
+  }
+  outline: 0;
+  outline-offset: 0;
+`
+
 const Step5: FC<{
   handlerNext(): void
   handlerPrev(): void
@@ -94,7 +124,7 @@ const Step5: FC<{
   const [val, setVal] = useState<{
     name: string
     address: string
-  }>(null)
+  }>(' ')
 
   const onChange = async (
     event: NativeSyntheticEvent<TextInputChangeEventData>
@@ -194,6 +224,7 @@ const Step5: FC<{
             {date?.day} {month[(date?.month || 1) - 1]}
             {date ? ', ' + days[new Date(date.timestamp).getDay()] : ''}
           </Text>
+          <InpWrapper>
           <TextInput
             onChange={onChange}
             value={val.name}
@@ -204,6 +235,10 @@ const Step5: FC<{
             value={val.address}
             placeholder="Добавьте местоположение"
           />
+          </InpWrapper>
+          <BtnWrapper>
+        <NextBtn onPress={handlerNext} title="Установить" />
+      </BtnWrapper>
         </View>
       </Modal>
       <BtnWrapper>
