@@ -81,7 +81,7 @@ const Inc: FC<{ fn(): void }> = ({ fn }) => {
         <path
           d="M34.454 1.29995L21.0618 14.6922C19.3708 16.3831 16.6292 16.3831 14.9382 14.6922L1.54603 1.29995"
           stroke="black"
-          stroke-width="2.598"
+          strokeWidth="2.598"
         />
       </svg>
     </TouchableHighlight>
@@ -101,7 +101,7 @@ const Dec: FC<{ fn(): void }> = ({ fn }) => {
         <path
           d="M1.54602 16.7001L14.9382 3.30785C16.6292 1.61689 19.3708 1.61689 21.0618 3.30785L34.454 16.7001"
           stroke="black"
-          stroke-width="2.598"
+          strokeWidth="2.598"
         />
       </svg>
     </TouchableHighlight>

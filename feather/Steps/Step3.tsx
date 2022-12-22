@@ -1,6 +1,7 @@
 import React, { useCallback, useState, FC } from 'react'
 import styled from 'styled-components/native'
 import { Text } from '@react-native-material/core'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import {
   NativeSyntheticEvent,
   TextInputChangeEventData,
@@ -140,8 +141,8 @@ const Step3: FC<{ handlerNext(): void }> = ({ handlerNext }) => {
 
   const handlerClick = (el: string) => {
     return () => {
-      console.log('first')
       handlerNext()
+      AsyncStorage.setItem('address', el)
       setOpenHelper(false)
       setVal(el)
     }
