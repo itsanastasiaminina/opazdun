@@ -12,13 +12,13 @@ const ItemFill = styled.View`
   background: #367cff;
   border-radius: 50px;
   height: 8px;
-  width: calc((100% - 64px) / 3);
+  width: 25%;
 `
 const Item = styled.View`
   background: #d9d9d9;
   border-radius: 50px;
   height: 8px;
-  width: calc((100% - 64px) / 3);
+  width: 25%;
 `
 const ItemActivePoint = styled.View`
   height: 8px;
@@ -39,7 +39,7 @@ const FirstStepProccess: FC<{ val: 1 | 2 | 3 }> = ({ val }) => {
       {new Array(3)
         .fill(null)
         .map((_, i) =>
-          val > i + 1 ? <ItemFill /> : val == i + 1 ? <ItemActive /> : <Item />
+          val > i + 1 ? <ItemFill key={i} /> : val == i + 1 ? <ItemActive key={i} /> : <Item key={i}/>
         )}
     </Wrapper>
   )

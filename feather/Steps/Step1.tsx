@@ -12,6 +12,26 @@ const MainImage = styled.Image`
   height: 177px;
   margin: 0 auto;
 `
+const CustomBox = styled.View`
+padding: 16px;
+padding-top: 32px;
+padding-right: 15px;
+`
+const CustomBox2 = styled.View`
+padding-top: 40px;
+padding-bottom: 40px;
+`
+const CustomBox3 = styled.View`
+padding-top: 9px;
+`
+const CustomBox4 = styled.View`
+padding: 14%;
+padding-top: 46px;
+`
+
+const CustomBox5 = styled.View`
+padding: 16px;
+`
 
 const Step1: FC<{
   handlerSkip(): void
@@ -26,7 +46,7 @@ const Step1: FC<{
           backgroundColor: 'white',
         }}
       >
-        <Box p="16px" pt="32px" pr="15px">
+        <CustomBox>
           <Text
             variant="body1"
             style={{
@@ -37,37 +57,37 @@ const Step1: FC<{
           >
             Пропустить
           </Text>
-        </Box>
+        </CustomBox>
       </TouchableHighlight>
-      <Box pt="40px" pb="40px">
+      <CustomBox2>
         <MainImage source={require('../../assets/step1.png')} />
-      </Box>
+      </CustomBox2>
       <Box>
         <Text variant="h6" style={{ fontWeight: '500', textAlign: 'center' }}>
           Выходи позже
         </Text>
       </Box>
-      <Box pt="9px">
+      <CustomBox3>
         <Text
           variant="subtitle1"
           style={{ fontWeight: '300', textAlign: 'center' }}
         >
           Но не опаздывай на запланированные мероприятия
         </Text>
-      </Box>
-      <Box p="calc(100%/7)" pt="46px">
+      </CustomBox3>
+      <CustomBox4>
         <FirstStepProccess val={2} />
-      </Box>
+      </CustomBox4>
       <Flex direction="row" justify="between">
         <TouchableHighlight onPress={handlerPrev}>
-          <Box p="16px">
+          <CustomBox5>
             <ArrowPrev />
-          </Box>
+          </CustomBox5>
         </TouchableHighlight>
         <TouchableHighlight onPress={handlerNext}>
-          <Box p="16px">
+          <CustomBox5>
             <ArrowNext />
-          </Box>
+          </CustomBox5>
         </TouchableHighlight>
       </Flex>
     </Flex>

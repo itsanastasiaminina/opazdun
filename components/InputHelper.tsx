@@ -9,15 +9,8 @@ import {
 } from 'react-native'
 import { debounce } from 'lodash'
 
-const MainPageLayout = styled.View`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`
 const HelperWrapper = styled.View`
   position: relative;
-  padding-top: -100px;
 `
 const Helper = styled.View`
   display: flex;
@@ -26,9 +19,10 @@ const Helper = styled.View`
   padding: 0px;
   position: absolute;
   width: 300px;
-  top: 100%;
+  top: calc(100% + 9px);
   background-color: white;
-  
+  z-index: 10000000;
+
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 `
@@ -52,61 +46,50 @@ const HelperItem = styled.Text`
   }
 `
 
-const MainImage = styled.Image`
-  width: 151px;
-  height: 200px;
-  margin: 0 auto;
-`
-const MainImageWrapper = styled.View`
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: -1;
-`
-
-
 const TextInput = styled.TextInput.attrs({
   placeholderTextColor: 'rgba(28, 27, 31, 0.3)',
 })`
-  background: #e3e3e3;
-  width: 300px;
   border-radius: 10px;
   padding: 16px;
+  margin: 4px;
+  font-size: 16;
+  border: 0.2px;
+  border-color: grey;
   &:active {
     outline: 0;
     outline-offset: 0;
+    border-width: 2px;
+    border-color: blue;
   }
   &:hover {
     outline: 0;
     outline-offset: 0;
+    border-color: blue;
   }
   &:focus {
     outline: 0;
     outline-offset: 0;
+    border-color: blue;
   }
   outline: 0;
   outline-offset: 0;
 `
-const TitleTextWrapper = styled.View`
-  padding: 100px 0;
-  padding-bottom: 30px;
-  text-align: center;
-`
 
-const Step3: FC<{ handlerNext(): void }> = ({ handlerNext }) => {
+const InputHelper: FC<{ handlerChange(el: string): void }> = ({
+  handlerChange,
+}) => {
   const [helperMap, setHelperMap] = useState<string[]>([])
   const [openHelper, setOpenHelper] = useState<boolean>(false)
   const [val, setVal] = useState<string>('')
-
   const onChange = async (
     event: NativeSyntheticEvent<TextInputChangeEventData>
   ) => {
     let query =
       event.target && (event.target as never as { value: string })?.value
-    setVal(event || '')
-    if (event) {
-      sendHelper(event)
+    setVal(query || '')
+    if (query) {
+      await sendHelper(query)
+      setOpenHelper(true)
     } else {
       setOpenHelper(false)
     }
@@ -135,8 +118,6 @@ const Step3: FC<{ handlerNext(): void }> = ({ handlerNext }) => {
           setHelperMap(
             result.suggestions.map((el: { value: string }) => el.value).flat()
           )
-          setOpenHelper(true)
-          console.log(result)
           return result
         })
         .catch((error) => console.log('error', error))
@@ -146,59 +127,27 @@ const Step3: FC<{ handlerNext(): void }> = ({ handlerNext }) => {
 
   const handlerClick = (el: string) => {
     return () => {
-      handlerNext()
       AsyncStorage.setItem('address', el)
       setOpenHelper(false)
       setVal(el)
+      handlerChange(el)
     }
   }
 
   return (
-    <MainPageLayout>
-      <TitleTextWrapper>
-        <Text
-          variant="body1"
-          style={{ fontWeight: '600', fontSize: 19 }}
-        >
-          Начнём с малого
-        </Text>
-        <Text variant="body1" style={{ fontWeight: '400', fontSize: 12 }}>
-          Укажи своё место проживания
-        </Text>
-      </TitleTextWrapper>
-      <HelperWrapper>
-        <Text
-          variant="body1"
-          style={{
-            fontWeight: '300',
-            fontSize: 14,
-            textAlign: 'left',
-            // paddingBottom: '8px',
-          }}
-        >
-          Адрес
-        </Text>
-
-        <TextInput
-          onChangeText={onChange}
-          value={val}
-          placeholder="Введите адрес"
-        />
-        {openHelper && helperMap && (
-          <Helper>
-            {helperMap.map((el) => (
-              <TouchableHighlight onPress={handlerClick(el)}>
-                <HelperItem>{el}</HelperItem>
-              </TouchableHighlight>
-            ))}
-          </Helper>
-        )}
-      </HelperWrapper>
-      <MainImageWrapper>
-        <MainImage source={require('../../assets/step3.png')} />
-      </MainImageWrapper>
-    </MainPageLayout>
+    <HelperWrapper>
+      <TextInput onChange={onChange} value={val} placeholder="Введите адрес" />
+      {openHelper && helperMap && (
+        <Helper>
+          {helperMap.map((el) => (
+            <TouchableHighlight onPress={handlerClick(el)}>
+              <HelperItem>{el}</HelperItem>
+            </TouchableHighlight>
+          ))}
+        </Helper>
+      )}
+    </HelperWrapper>
   )
 }
 
-export default Step3
+export default InputHelper

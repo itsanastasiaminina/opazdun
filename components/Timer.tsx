@@ -1,6 +1,7 @@
 import React, { useState, FC } from 'react'
 import { Text, TouchableHighlight } from 'react-native'
 import styled from 'styled-components/native'
+import Svg, { G, Path } from 'react-native-svg';
 
 const TimerItem = styled.View`
   display: flex;
@@ -71,7 +72,20 @@ export default Timer
 const Inc: FC<{ fn(): void }> = ({ fn }) => {
   return (
     <TouchableHighlight onPress={fn}>
-      <svg
+      <Svg
+        width="36"
+        height="18"
+        viewBox="0 0 36 18"
+        fill="none"
+        // xmlns="http://www.w3.org/2000/svg"
+      >
+        <Path
+          d="M34.454 1.29995L21.0618 14.6922C19.3708 16.3831 16.6292 16.3831 14.9382 14.6922L1.54603 1.29995"
+          stroke="black"
+          strokeWidth="2.598"
+        />
+      </Svg>
+      {/* <svg
         width="36"
         height="18"
         viewBox="0 0 36 18"
@@ -83,7 +97,7 @@ const Inc: FC<{ fn(): void }> = ({ fn }) => {
           stroke="black"
           strokeWidth="2.598"
         />
-      </svg>
+      </svg> */}
     </TouchableHighlight>
   )
 }
@@ -91,7 +105,20 @@ const Inc: FC<{ fn(): void }> = ({ fn }) => {
 const Dec: FC<{ fn(): void }> = ({ fn }) => {
   return (
     <TouchableHighlight onPress={fn}>
-      <svg
+      <Svg
+        width="36"
+        height="18"
+        viewBox="0 0 36 18"
+        fill="none"
+        //xmlns="http://www.w3.org/2000/svg"
+      >
+        <Path
+          d="M1.54602 16.7001L14.9382 3.30785C16.6292 1.61689 19.3708 1.61689 21.0618 3.30785L34.454 16.7001"
+          stroke="black"
+          strokeWidth="2.598"
+        />
+      </Svg>
+      {/* <svg
         width="36"
         height="18"
         viewBox="0 0 36 18"
@@ -103,7 +130,7 @@ const Dec: FC<{ fn(): void }> = ({ fn }) => {
           stroke="black"
           strokeWidth="2.598"
         />
-      </svg>
+      </svg> */}
     </TouchableHighlight>
   )
 }
