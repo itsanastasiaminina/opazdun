@@ -49,10 +49,10 @@ const TimePage: FC = () => {
       </Box>
 
       <Box>
-        <Text variant="h1" style={{ fontWeight: '500', color:'grey', textAlign: 'center', fontSize: 80, paddingTop:'250px'}}>
+<!--         <Text variant="h1" style={{ fontWeight: '500', color:'grey', textAlign: 'center', fontSize: 80, paddingTop:'250px'}}>
            47мин.
             {/* {} */}
-        </Text>
+        </Text> -->
       </Box> 
     </Flex>
   )
