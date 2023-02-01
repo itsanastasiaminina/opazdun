@@ -68,9 +68,9 @@ const CalendarPage: FC = () => {
     </CustomBox2>
     <CustomBox2>
     <Wrapper>
-        <Text variant="subtitle1" style={{padding:'20px', fontWeight: '800', textAlign: 'left', fontSize: 22, color:'#367cff'}}>
+<!--         <Text variant="subtitle1" style={{padding:'20px', fontWeight: '800', textAlign: 'left', fontSize: 22, color:'#367cff'}}>
         06:00
-        </Text>
+        </Text> -->
           <Items>
           <Text variant="subtitle1" style={{fontWeight: '800', textAlign: 'center', fontSize: 20 }}>
           Учеба
@@ -79,9 +79,9 @@ const CalendarPage: FC = () => {
           
       </Wrapper>
       <Wrapper>
-        <Text variant="subtitle1" style={{padding:'20px', fontWeight: '800', textAlign: 'left', fontSize: 22, color:'#367cff'}}>
+<!--         <Text variant="subtitle1" style={{padding:'20px', fontWeight: '800', textAlign: 'left', fontSize: 22, color:'#367cff'}}>
         12:10
-        </Text>
+        </Text> -->
           <Items>
           <Text variant="subtitle1" style={{fontWeight: '800', textAlign: 'center', fontSize: 20 }}>
           Работа
