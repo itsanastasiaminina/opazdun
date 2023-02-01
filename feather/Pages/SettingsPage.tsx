@@ -55,9 +55,9 @@ const SettingsPage: FC = () => {
             placeholder="00:00"
           /> */}
           <Items>
-          <Text variant="subtitle1" style={{fontWeight: '800', textAlign: 'center', fontSize: 18 }}>
+<!--           <Text variant="subtitle1" style={{fontWeight: '800', textAlign: 'center', fontSize: 18 }}>
         40 мин.
-        </Text>
+        </Text> -->
           </Items>
       </Wrapper>
       <Wrapper>
@@ -75,9 +75,9 @@ const SettingsPage: FC = () => {
             placeholder="00:00"
           /> */}
           <Items>
-          <Text variant="subtitle1" style={{fontWeight: '800', textAlign: 'center', fontSize: 18 }}>
+<!--           <Text variant="subtitle1" style={{fontWeight: '800', textAlign: 'center', fontSize: 18 }}>
         ул. Тургенева, д. 4
-        </Text>
+        </Text> -->
           </Items>
           
       </Wrapper>
